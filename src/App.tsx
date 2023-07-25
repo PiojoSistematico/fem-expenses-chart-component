@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import icon from "./assets/images/logo.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const today = new Date();
+
+  console.log(today.getDay());
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main>
+      <header className="flex-between">
+        <div>
+          <span>My balance</span>
+          <h1>$921.48</h1>
+        </div>
+        <img src={icon} alt="" />
+      </header>
+      <section className="spending-section">
+        <h2>Spending - Last 7 days</h2>
+        <section className="graph-section">
+          <ul className="days">
+            <li className="bar"> </li>
+            <li className="bar"> </li>
+            <li className="bar"> </li>
+            <li className="bar"> </li>
+            <li className="bar"> </li>
+            <li className="bar"> </li>
+            <li className="bar"> </li>
+          </ul>
+          <ul className="days">
+            <li>mon</li>
+            <li>tue</li>
+            <li>wed</li>
+            <li>thu</li>
+            <li>fri</li>
+            <li>sat</li>
+            <li>sun</li>
+          </ul>
+        </section>
+        <section className="summary-section">
+          <h4>Total this month</h4>
+          <div className="flex-between">
+            <h3>$478.33</h3>
+            <div className="details-section">
+              <span className="change">+2.4%</span>
+              <span>from last month</span>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  );
 }
 
-export default App
+export default App;
