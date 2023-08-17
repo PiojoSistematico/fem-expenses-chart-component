@@ -1,12 +1,36 @@
+import { useEffect, useState } from "react";
 import icon from "./assets/images/logo.svg";
+import Bar from "./components/Bar";
+
+type DataElement = {
+  day: string;
+  amount: number;
+};
 
 function App() {
   const today = new Date();
+  const [data, setData] = useState<DataElement[]>([]);
 
-  console.log(today.getDay());
+  useEffect(() => {
+    fetch("data.json")
+      .then((res) => res.json())
+      .then((info) => setData(info));
+  }, []);
+
+  let maxAmount: number = 0;
+
+  if (data.length > 0) {
+    maxAmount = data.reduce(
+      (max, elem) => (elem.amount > max ? elem.amount : max),
+      data[0].amount
+    );
+  }
+
+  console.log("day", today.getDay());
+  console.log("max", maxAmount);
 
   return (
-    <main>
+    <>
       <header className="flex-between">
         <div>
           <span>My balance</span>
@@ -14,17 +38,13 @@ function App() {
         </div>
         <img src={icon} alt="" />
       </header>
-      <section className="spending-section">
+      <main>
         <h2>Spending - Last 7 days</h2>
         <section className="graph-section">
-          <ul className="days">
-            <li className="bar"> </li>
-            <li className="bar"> </li>
-            <li className="bar"> </li>
-            <li className="bar"> </li>
-            <li className="bar"> </li>
-            <li className="bar"> </li>
-            <li className="bar"> </li>
+          <ul className="days graph">
+            {data.map((elem) => (
+              <Bar value={elem.amount} maxAmount={maxAmount}></Bar>
+            ))}
           </ul>
           <ul className="days">
             <li>mon</li>
@@ -46,8 +66,8 @@ function App() {
             </div>
           </div>
         </section>
-      </section>
-    </main>
+      </main>
+    </>
   );
 }
 

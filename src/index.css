@@ -110,30 +110,25 @@ body {
   justify-content: center;
 }
 
-main {
-  display: grid;
-  grid-template-rows: 1fr 5fr;
-  gap: 1rem;
-  height: 700px;
-  width: 350px;
-}
-
 header {
   background-color: var(--clr-primary-soft-red);
   border-radius: 1rem;
   border: none;
   color: var(--clr-neutral-very-pale-orange);
   padding: 1rem;
+  margin-bottom: 1rem;
+  width: 350px;
 }
 
-.spending-section {
+main {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background-color: var(--clr-neutral-very-pale-orange);
   border-radius: 1rem;
   border: none;
   padding: 1rem;
-  display: grid;
-  grid-template-rows: 1fr 4fr 2fr;
-  align-items: center;
 }
 
 h1 {
@@ -162,7 +157,7 @@ h3 {
 
 .graph-section {
   border-bottom: 0.2rem solid var(--clr-neutral-cream);
-  align-self: end;
+
   padding-bottom: 1rem;
 }
 
@@ -171,10 +166,15 @@ h3 {
   grid-template-rows: 1fr 2fr;
 }
 
+.graph {
+  height: 200px;
+}
+
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;
+  align-items: end;
   font-size: var(--font-size-300);
 }
 li {
@@ -189,7 +189,7 @@ li {
   border: none;
 }
 
-.bars:hover {
+.bar:hover {
   opacity: 0.7;
   background-color: var(--clr-primary-soft-red);
 }
@@ -205,117 +205,6 @@ li {
   grid-template-rows: 1fr 1fr;
   text-align: end;
 }
-
-/* 
-
-.card-section {
-  background-image: url("./assets/images/bg-main-mobile.png");
-  position: relative;
-}
-
-.front-card {
-  background-image: url("./assets/images/bg-card-front.png");
-  border-radius: 0.5rem;
-  color: var(--clr-neutral-light-grayish-violet);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 320px;
-  height: 180px;
-  transform: translate(10%, 30%);
-  z-index: 2;
-  display: grid;
-  grid-template-rows: 2fr 1fr 1fr;
-  padding: 1.5rem;
-  align-items: center;
-}
-
-.front-card img {
-  width: 70px;
-  align-self: flex-start;
-}
-
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-  font-size: var(--font-size-300);
-  text-transform: uppercase;
-}
-
-.back-card {
-  background-image: url("./assets/images/bg-card-back.png");
-  border-radius: 0.5rem;
-  color: var(--clr-neutral-white);
-  font-size: var(--font-size-200);
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 320px;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  padding: 2.5rem;
-  transform: translate(-10%, 30%);
-}
-
-form {
-  padding: 4rem 2rem 4rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 0.5rem;
-  grid-template-areas:
-    "cardHolder cardHolder"
-    "cardNumber cardNumber"
-    "cardExpiration cardCVC"
-    "confirm confirm";
-}
-
-.card-holder {
-  grid-area: cardHolder;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-.card-number {
-  grid-area: cardNumber;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-.card-expiration {
-  grid-area: cardExpiration;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-.card-date {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.3rem;
-}
-
-.card-cvc {
-  grid-area: cardCVC;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-.confirm {
-  grid-area: confirm;
-}
-
-label {
-  color: var(--clr-neutral-very-dark-violet);
-  text-transform: uppercase;
-  font-size: var(--font-size-400);
-  align-self: flex-end;
-}
-
-input {
-  color: var(--clr-neutral-dark-grayish-violet);
-  border-radius: 0.5rem;
-  border: 0.1rem solid var(--clr-neutral-light-grayish-violet);
-  padding: 0.2rem 0.8rem;
-  width: 100%;
-} */
 
 /* https://codepen.io/sosuke/pen/Pjoqqp */
 /* .red-dot {
