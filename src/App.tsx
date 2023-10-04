@@ -26,9 +26,6 @@ function App() {
     );
   }
 
-  console.log("day", today.getDay());
-  console.log("max", maxAmount);
-
   return (
     <>
       <header className="flex-between">
@@ -42,8 +39,13 @@ function App() {
         <h2>Spending - Last 7 days</h2>
         <section className="graph-section">
           <ul className="days graph">
-            {data.map((elem) => (
-              <Bar value={elem.amount} maxAmount={maxAmount}></Bar>
+            {data.map((elem, index) => (
+              <Bar
+                key={index}
+                today={index == today.getDay() - 1}
+                value={elem.amount}
+                maxAmount={maxAmount}
+              ></Bar>
             ))}
           </ul>
           <ul className="days">
